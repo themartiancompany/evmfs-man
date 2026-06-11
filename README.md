@@ -24,11 +24,16 @@
 [comment]: <> (with this program.)
 [comment]: <> (If not, see <https://www.gnu.org/licenses/>.)
 
-# EVM Contracts Tools manual
+# Ethereum Virtual Machine File System (EVMFS) manuals
 
-The [EVM Contracts Tools](
-  https://github.com/themartiancompany/evm-contracts-tools)
-manuals.
+The [Ethereum Virtual Machine File System](
+  https://github.com/themartiancompany/evmfs)
+(EVMFS) manuals.
+
+Includes manuals for the Bash and the Javascript
+[`evmfs.js`](
+  https://github.com/themartiancompany/evmfs.js)
+client.
 
 ## Installation
 
@@ -45,7 +50,7 @@ the uncensorable
 [Ur](
   https://github.com/themartiancompany/ur)
 user repository and application store as
-`evm-contracts-tools`.
+`evmfs`.
 The source code is published on the
 [Ethereum Virtual Machine File System](
   https://github.com/themartiancompany/evmfs)
@@ -55,14 +60,14 @@ To install it from there just type
 
 ```bash
 ur \
-  evm-contracts-tools
+  evmfs
 ```
 
 A censorable HTTP Github mirror of the recipe published there,
 containing a full list of the software dependencies needed to run the
 tools is hosted on
-[evm-contracts-tools-ur](
-  https://github.com/themartiancompany/evm-contracts-tools-ur).
+[evmfs-ur](
+  https://github.com/themartiancompany/evmfs-ur).
 Be aware the mirror could go offline any time as Github and more
 in general all HTTP resources are inherently unstable and censorable.
 
@@ -72,10 +77,10 @@ can be installed with
 ```bash
 npm \
   install \
-    evm-contracts-tools
+    evmfs
 ```
 
 ## License
 
-This program is released by Pellegrino Prevete under the terms
+This manual is released by Pellegrino Prevete under the terms
 of the GNU Affero General Public License version 3.

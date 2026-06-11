@@ -27,9 +27,9 @@
    If not, see <https://www.gnu.org/licenses/>.
 
 
-==============================================
-EVM Contracts Tools manuals authors
-==============================================
+===============================================================
+Ethereum Virtual Machine File System (EVMFS) manuals authors
+===============================================================
 
 * Pellegrino Prevete
   * eth-mail
