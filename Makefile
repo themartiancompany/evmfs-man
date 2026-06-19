@@ -21,6 +21,7 @@
 #    If not, see <https://www.gnu.org/licenses/>.
 
 _PROJECT=evmfs
+_MAN_DOMAIN ?= humaninstrumentalityproject.org
 _GITHUB_NS ?= themartiancompany
 PREFIX ?= /usr/local
 DOC_DIR=$(DESTDIR)$(PREFIX)/share/doc/$(_PROJECT)
@@ -28,7 +29,7 @@ DATA_DIR=$(DESTDIR)$(PREFIX)/share/$(_PROJECT)
 MAN_DIR?=$(DESTDIR)$(PREFIX)/share/man
 
 MAN_FILES=\
-  $(wildcard *1.rst)
+  $(wildcard *.1.rst)
 
 DOCS_FILES=\
   $(wildcard *.md)
@@ -52,6 +53,19 @@ build-man:
 	mkdir \
 	  -p \
 	  "build"
+	sed \
+	  "s/insert.version.here/$(_VERSION)/g" \
+	  "variables.rst" > \
+	  "build/variables.rst"; \
+	if [[ "$(_GITHUB_NS)" != ""  ]]; then \
+	  sed \
+	    "s/insert.domain.here/$(_PROJECT).man.$(_MAN_DOMAIN)/g" \
+	    -i \
+	    "build/variables.rst"; \
+	  rst2man \
+	    "index.rst" \
+	    "$${PWD}/build/index.1"; \
+	fi
 	for _file in $(MAN_FILES); do \
 	  rst2man \
 	    "$${_file}" \
@@ -83,7 +97,8 @@ build-gh-pages:
 	    "origin" \
 	      "gh-pages" || \
 	true
-	for _file in $(MAN_FILES); do \
+	for _file in $(MAN_FILES) \
+                     "index.rst"; do \
 	  cat \
 	    "$${PWD}/build/$${_file%.rst}" | \
 	    groff \
@@ -92,11 +107,11 @@ build-gh-pages:
 	        "html" > \
 	    "$${PWD}/build/$${_file%.1.rst}.html"; \
 	done
+	cd \
+	  "build"; \
 	git \
-	  -C \
-	    "build" \
 	  add \
-	    "build/"*".html"
+	    *".html"
 	git \
 	  -C \
 	    "build" \
