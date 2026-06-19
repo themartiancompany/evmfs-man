@@ -95,8 +95,15 @@ build-gh-pages:
 	git \
 	  -C \
 	    "build" \
-  	  commit \
-	    -aSm \
+	  add \
+	    "build/"*".html"
+	git \
+	  -C \
+	    "build" \
+ 	  commit \
+	    -a \
+	    -S \
+	    -m \
 	    "Build manual pages."  
 
 install-doc:
