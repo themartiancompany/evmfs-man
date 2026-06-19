@@ -74,14 +74,15 @@ build-gh-pages:
 	  remote \
 	    add \
 	      "origin" \
-	      "github:$(GITHUB_NS)/$(_PROJECT)-man" || \
+	      "github:$(_GITHUB_NS)/$(_PROJECT)-man" || \
 	true
 	git \
 	  -C \
 	    "build" \
 	  pull \
 	    "origin" \
-	      "gh-pages"
+	      "gh-pages" || \
+	true
 	for _file in $(MAN_FILES); do \
 	  cat \
 	    "$${PWD}/build/$${_file%.rst}" | \
