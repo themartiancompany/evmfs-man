@@ -21,6 +21,7 @@
 #    If not, see <https://www.gnu.org/licenses/>.
 
 _PROJECT=evmfs
+_GITHUB_NS ?= themartiancompany
 PREFIX ?= /usr/local
 DOC_DIR=$(DESTDIR)$(PREFIX)/share/doc/$(_PROJECT)
 DATA_DIR=$(DESTDIR)$(PREFIX)/share/$(_PROJECT)
@@ -57,6 +58,46 @@ build-man:
 	    "$${PWD}/build/$${_file%.rst}"; \
 	done
 
+build-gh-pages:
+
+	make \
+	  "build-man"
+	git \
+	  init \
+	    "build" \
+	    --initial-branch \
+	      "gh-pages" || \
+	true
+	git \
+	  -C \
+  	    "build" \
+	  remote \
+	    add \
+	      "origin" \
+	      "github:$(GITHUB_NS)/$(_PROJECT)-man" || \
+	true
+	git \
+	  -C \
+	    "build" \
+	  pull \
+	    "origin" \
+	      "gh-pages"
+	for _file in $(MAN_FILES); do \
+	  cat \
+	    "$${PWD}/build/$${_file%.rst}" | \
+	    groff \
+	      -mandoc \
+	      -T \
+	        "html" > \
+	    "$${PWD}/build/$${_file%.1.rst}.html"; \
+	done
+	git \
+	  -C \
+	    "build" \
+  	  commit \
+	    -aSm \
+	    "Build manual pages."  
+
 install-doc:
 
 	# $(INSTALL_FILE) \
@@ -81,5 +122,17 @@ install-man:
 	    "$${PWD}/build/$${_file%.rst}" \
 	    "$(MAN_DIR)/man1/$${_file%.rst}"; \
 	done
+
+publish-gh-pages:
+
+	make \
+	  "build-gh-pages"
+	git \
+	  -C \
+	    "build" \
+	  push \
+	    "origin" \
+	    "gh-pages"
+
 
 .PHONY: build-man install install-doc install-man
