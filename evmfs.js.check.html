@@ -1,0 +1,373 @@
+<!-- Creator     : groff version 1.24.1 -->
+<!-- CreationDate: Fri Jun 19 20:43:13 2026 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
+</style>
+<title>evmfs.js.check</title>
+
+</head>
+<body>
+
+<h1 align="center">evmfs.js.check</h1>
+
+<a href="#Name">Name</a><br>
+<a href="#Synopsis">Synopsis</a><br>
+<a href="#Description">Description</a><br>
+<a href="#Arguments">Arguments</a><br>
+<a href="#Networks">Networks</a><br>
+<a href="#Options">Options</a><br>
+<a href="#Bugs">Bugs</a><br>
+<a href="#Copyright">Copyright</a><br>
+<a href="#See also">See also</a><br>
+
+<hr>
+
+
+<h2>Name
+<a name="Name"></a>
+</h2>
+
+
+<p style="margin-left:6%; margin-top: 1em">evmfs.js.check -
+Ethereum Virtual Machine Cross Chain File System check
+program</p>
+
+<h2>Synopsis
+<a name="Synopsis"></a>
+</h2>
+
+
+<p style="margin-left:6%; margin-top: 1em">evmfs.js.check
+<i>quiet retries-max api-key-path target-network
+deployments-dir *fs-version rpc-selection contract-address
+contract-abi-path contract-bytecode-path
+contract-compiler-output-path *publication-namespace
+index-start file-hash index-start index-end
+checkpoint-file-path chunk-file-path</i></p>
+
+<h2>Description
+<a name="Description"></a>
+</h2>
+
+
+<p style="margin-left:6%; margin-top: 1em">Program used to
+retrieve files from the Ethereum Virtual Machine File System
+(EVMFS).</p>
+
+<h2>Arguments
+<a name="Arguments"></a>
+</h2>
+
+
+<p style="margin-left:10%; margin-top: 1em">&quot;
+&lt;publication-namespace&gt; Namespace in which the file
+will be&quot;, &quot; published.&quot;, &quot;
+&lt;file-hash&gt; Hash of the file to publish.&quot;, &quot;
+&lt;index-start&gt; Chunk index from where to start.&quot;,
+&quot; &lt;index-end&gt; Final chunk index to
+download.&quot;, &quot; [chunk-file-path] Files in which to
+write the chunks.&quot;,</p>
+
+
+<p style="margin-left:6%; margin-top: 1em"><i>quiet</i></p>
+
+<p style="margin-left:10%;">Can be 'y' or 'n'. Default:
+y</p>
+
+
+<p style="margin-left:6%; margin-top: 1em"><i>retries-max</i></p>
+
+<p style="margin-left:10%;">Maximum number of retries
+before&quot;, failing (not implemented).</p>
+
+
+<p style="margin-left:6%; margin-top: 1em"><i>api-key-path</i></p>
+
+<p style="margin-left:10%;">Path of the API key for the
+contract ABI provider service.</p>
+
+
+<p style="margin-left:6%; margin-top: 1em"><i>target-network</i></p>
+
+<p style="margin-left:10%;">Network on which the contract
+resides.</p>
+
+
+<p style="margin-left:6%; margin-top: 1em"><i>contract-address</i></p>
+
+<p style="margin-left:10%;">Address of the contract.</p>
+
+
+<p style="margin-left:6%; margin-top: 1em"><i>contract-abi-path</i></p>
+
+<p style="margin-left:10%;">Contract ABI path.</p>
+
+
+<p style="margin-left:6%; margin-top: 1em"><i>contract-bytecode-path</i></p>
+
+<p style="margin-left:10%;">Path for the contract
+bytecode.</p>
+
+
+<p style="margin-left:6%; margin-top: 1em"><i>contract-compiler-output-path</i></p>
+
+<p style="margin-left:10%;">Path for the contract compiler
+output path (the hardhat artifact).</p>
+
+
+<p style="margin-left:6%; margin-top: 1em"><i>publication-namespace</i></p>
+
+<p style="margin-left:10%;">Namespace in which the file
+will be published.</p>
+
+
+<p style="margin-left:6%; margin-top: 1em"><i>file-hash</i></p>
+
+<p style="margin-left:10%;">Hash of the file to
+publish.</p>
+
+
+<p style="margin-left:6%; margin-top: 1em"><i>index-start</i></p>
+
+<p style="margin-left:10%;">Chunk index from where to
+start.</p>
+
+
+<p style="margin-left:6%; margin-top: 1em"><i>index-end</i></p>
+
+<p style="margin-left:10%;">Final chunk index to
+download.</p>
+
+
+<p style="margin-left:6%; margin-top: 1em"><i>[chunk-file-path]</i></p>
+
+<p style="margin-left:10%;">Files in which to write the
+chunks.</p>
+
+<h2>Networks
+<a name="Networks"></a>
+</h2>
+
+
+<p style="margin-left:6%; margin-top: 1em">The list of
+supported networks can be consulted using
+<i>evm-chains-info</i>. Public EVMFS contracts' deployments'
+networks, versions and addresses available in this EVMFS
+install can be consulted using
+<i>evm-deployment-networks</i>,
+<i>evm-deployment-versions</i> and
+<i>evm-deployment-address</i>. So for example to list all
+the public deployments' addresses for the <i>FileSystem</i>
+EVMFS contract one can type:</p>
+
+
+<p style="margin-left:6%; margin-top: 1em">evm-deployment-address
+<i>-a evmfs FileSystem</i></p>
+
+<p style="margin-left:6%; margin-top: 1em">For further
+options, like for example how to configure user-defined
+private EVMFS deployments, refer to those programs'
+manuals.</p>
+
+<h2>Options
+<a name="Options"></a>
+</h2>
+
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="6%"></td>
+<td width="3%">
+
+
+<p style="margin-top: 1em"><b>-h</b></p></td>
+<td width="6%"></td>
+<td width="28%">
+
+
+<p style="margin-top: 1em">Displays help message.</p></td>
+<td width="57%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="6%"></td>
+<td width="3%">
+
+
+<p style="margin-top: 1em"><b>-v</b></p></td>
+<td width="6%"></td>
+<td width="28%">
+
+
+<p style="margin-top: 1em">Enable verbose output</p></td>
+<td width="57%">
+</td></tr>
+</table>
+
+<h2>Bugs
+<a name="Bugs"></a>
+</h2>
+
+
+
+<p style="margin-left:6%; margin-top: 1em">&lt;https://github.com/themartiancompany/evmfs.js/-/issues&gt;</p>
+
+<h2>Copyright
+<a name="Copyright"></a>
+</h2>
+
+
+<p style="margin-left:6%; margin-top: 1em">Copyright
+Pellegrino Prevete. AGPL-3.0.</p>
+
+<h2>See also
+<a name="See also"></a>
+</h2>
+
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="6%"></td>
+<td width="2%">
+
+
+<p style="margin-top: 1em">&bull;</p></td>
+<td width="1%"></td>
+<td width="24%">
+
+
+<p style="margin-top: 1em">evmfs.js.ccget</p></td>
+<td width="67%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="6%"></td>
+<td width="2%">
+
+
+<p style="margin-top: 1em">&bull;</p></td>
+<td width="1%"></td>
+<td width="24%">
+
+
+<p style="margin-top: 1em">evmfs.js.get</p></td>
+<td width="67%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="6%"></td>
+<td width="2%">
+
+
+<p style="margin-top: 1em">&bull;</p></td>
+<td width="1%"></td>
+<td width="24%">
+
+
+<p style="margin-top: 1em">evmfs.js.index</p></td>
+<td width="67%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="6%"></td>
+<td width="2%">
+
+
+<p style="margin-top: 1em">&bull;</p></td>
+<td width="1%"></td>
+<td width="24%">
+
+
+<p style="margin-top: 1em">evmfs.js.lengthlock</p></td>
+<td width="67%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="6%"></td>
+<td width="2%">
+
+
+<p style="margin-top: 1em">&bull;</p></td>
+<td width="1%"></td>
+<td width="24%">
+
+
+<p style="margin-top: 1em">evmfs.js.lock</p></td>
+<td width="67%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="6%"></td>
+<td width="2%">
+
+
+<p style="margin-top: 1em">&bull;</p></td>
+<td width="1%"></td>
+<td width="24%">
+
+
+<p style="margin-top: 1em">evmfs.js.publish</p></td>
+<td width="67%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="6%"></td>
+<td width="2%">
+
+
+<p style="margin-top: 1em">&bull;</p></td>
+<td width="1%"></td>
+<td width="24%">
+
+
+<p style="margin-top: 1em">evmfs.js.veryfy</p></td>
+<td width="67%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="6%"></td>
+<td width="2%">
+
+
+<p style="margin-top: 1em">&bull;</p></td>
+<td width="1%"></td>
+<td width="24%">
+
+
+<p style="margin-top: 1em">evmfs</p></td>
+<td width="67%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="6%"></td>
+<td width="2%">
+
+
+<p style="margin-top: 1em">&bull;</p></td>
+<td width="1%"></td>
+<td width="24%">
+
+
+<p style="margin-top: 1em">evmfs-publish</p></td>
+<td width="67%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="6%"></td>
+<td width="2%">
+
+
+<p style="margin-top: 1em">&bull;</p></td>
+<td width="1%"></td>
+<td width="24%">
+
+
+<p style="margin-top: 1em">evm-wallet</p></td>
+<td width="67%">
+</td></tr>
+ </table>
+<hr>
+</body>
+</html>

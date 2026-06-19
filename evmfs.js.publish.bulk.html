@@ -1,0 +1,309 @@
+<!-- Creator     : groff version 1.24.1 -->
+<!-- CreationDate: Fri Jun 19 20:43:15 2026 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
+</style>
+<title>evmfs-get</title>
+
+</head>
+<body>
+
+<h1 align="center">evmfs-get</h1>
+
+<a href="#Name">Name</a><br>
+<a href="#Synopsis">Synopsis</a><br>
+<a href="#Description">Description</a><br>
+<a href="#Networks">Networks</a><br>
+<a href="#Options">Options</a><br>
+<a href="#Contract options">Contract options</a><br>
+<a href="#LibEVM options">LibEVM options</a><br>
+<a href="#Credentials options">Credentials options</a><br>
+<a href="#Application options">Application options</a><br>
+<a href="#Bugs">Bugs</a><br>
+<a href="#Copyright">Copyright</a><br>
+<a href="#See also">See also</a><br>
+
+<hr>
+
+
+<h2>Name
+<a name="Name"></a>
+</h2>
+
+
+<p style="margin-left:6%; margin-top: 1em">evmfs-get -
+Ethereum Virtual Machine File System download program</p>
+
+<h2>Synopsis
+<a name="Synopsis"></a>
+</h2>
+
+
+<p style="margin-left:6%; margin-top: 1em">evmfs-get
+<i>[options] -o output-file address</i></p>
+
+<h2>Description
+<a name="Description"></a>
+</h2>
+
+
+<p style="margin-left:6%; margin-top: 1em">Program used to
+retrieve files from the Ethereum Virtual Machine File System
+(EVMFS).</p>
+
+<h2>Networks
+<a name="Networks"></a>
+</h2>
+
+
+<p style="margin-left:6%; margin-top: 1em">The list of
+supported networks can be consulted using
+<i>evm-chains-info</i>. Public EVMFS contracts' deployments'
+networks, versions and addresses available in this EVMFS
+install can be consulted using
+<i>evm-deployment-networks</i>,
+<i>evm-deployment-versions</i> and
+<i>evm-deployment-address</i>. So for example to list all
+the public deployments' addresses for the <i>FileSystem</i>
+EVMFS contract one can type:</p>
+
+
+<p style="margin-left:6%; margin-top: 1em">evm-deployment-address
+<i>-a evmfs FileSystem</i></p>
+
+<p style="margin-left:6%; margin-top: 1em">For further
+options, like for example how to configure user-defined
+private EVMFS deployments, refer to those programs'
+manuals.</p>
+
+<h2>Options
+<a name="Options"></a>
+</h2>
+
+
+
+<p style="margin-left:6%; margin-top: 1em"><b>-o&nbsp;</b><i>output_file</i></p>
+
+<p style="margin-left:15%;">Name of the file in which to
+save the downloaded resource.</p>
+
+
+<p style="margin-left:6%;"><b>-m&nbsp;</b><i>call_method</i></p>
+
+<p style="margin-left:15%;">Can be standalone or
+'bulk'.</p>
+
+
+<p style="margin-left:6%;"><b>-r&nbsp;</b><i>retries_max</i></p>
+
+<p style="margin-left:15%;">Maximum number of retries
+before failing.</p>
+
+
+<p style="margin-left:6%;"><b>-P&nbsp;</b><i>tasks_parallel</i></p>
+
+<p style="margin-left:15%;">Tasks to perform in
+parallel.</p>
+
+<h2>Contract options
+<a name="Contract options"></a>
+</h2>
+
+
+
+<p style="margin-left:6%; margin-top: 1em"><b>-A&nbsp;</b><i>fs_address</i></p>
+
+<p style="margin-left:15%;">Address of the EVM file system
+on the network.</p>
+
+
+<p style="margin-left:6%;"><b>-B&nbsp;</b><i>ll_address</i></p>
+
+<p style="margin-left:15%;">Address of the Length Lock
+contract on the network.</p>
+
+
+<p style="margin-left:6%;"><b>-C&nbsp;</b><i>ccfs_address</i></p>
+
+<p style="margin-left:15%;">Address of the
+CrossChainFileSystem contract on the network.</p>
+
+
+<p style="margin-left:6%;"><b>-V&nbsp;</b><i>fs_version</i></p>
+
+<p style="margin-left:15%;">Version of the target EVM file
+system.</p>
+
+<h2>LibEVM options
+<a name="LibEVM options"></a>
+</h2>
+
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="6%"></td>
+<td width="3%">
+
+
+<p style="margin-top: 1em"><b>-u</b></p></td>
+<td width="6%"></td>
+<td width="85%">
+
+
+<p style="margin-top: 1em">Whether to retrieve file system
+address from user directory or custom deployment.</p></td></tr>
+</table>
+
+
+<p style="margin-left:6%;"><b>-d&nbsp;</b><i>deployments_dir</i></p>
+
+<p style="margin-left:15%;">Contracts deployments
+directory.</p>
+
+
+<p style="margin-left:6%;"><b>-n&nbsp;</b><i>network</i></p>
+
+<p style="margin-left:15%;">EVM network name
+(${_networks[*]}).</p>
+
+<h2>Credentials options
+<a name="Credentials options"></a>
+</h2>
+
+
+<p style="margin-left:6%; margin-top: 1em">-N
+wallet_name&gt; Wallet name. -w wallet_path&gt; Wallet path.
+-p wallet_password&gt; Wallet password. -s wallet_seed
+Wallet seed path. -k api_key Etherscan-like service key.</p>
+
+<h2>Application options
+<a name="Application options"></a>
+</h2>
+
+
+
+<p style="margin-left:6%; margin-top: 1em"><b>-W&nbsp;</b><i>cache_dir</i></p>
+
+<p style="margin-left:15%;">Location where to temporary
+store the downloaded resource chunks.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="6%"></td>
+<td width="3%">
+
+
+<p><b>-h</b></p></td>
+<td width="6%"></td>
+<td width="28%">
+
+
+<p>Displays help message.</p></td>
+<td width="57%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="6%"></td>
+<td width="3%">
+
+
+<p style="margin-top: 1em"><b>-c</b></p></td>
+<td width="6%"></td>
+<td width="28%">
+
+
+<p style="margin-top: 1em">Enable color output</p></td>
+<td width="57%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="6%"></td>
+<td width="3%">
+
+
+<p style="margin-top: 1em"><b>-v</b></p></td>
+<td width="6%"></td>
+<td width="28%">
+
+
+<p style="margin-top: 1em">Enable verbose output</p></td>
+<td width="57%">
+</td></tr>
+</table>
+
+<h2>Bugs
+<a name="Bugs"></a>
+</h2>
+
+
+
+<p style="margin-left:6%; margin-top: 1em">&lt;https://github.com/themartiancompany/evmfs/-/issues&gt;</p>
+
+<h2>Copyright
+<a name="Copyright"></a>
+</h2>
+
+
+<p style="margin-left:6%; margin-top: 1em">Copyright
+Pellegrino Prevete. AGPL-3.0.</p>
+
+<h2>See also
+<a name="See also"></a>
+</h2>
+
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="6%"></td>
+<td width="2%">
+
+
+<p style="margin-top: 1em">&bull;</p></td>
+<td width="1%"></td>
+<td width="16%">
+
+
+<p style="margin-top: 1em">evmfs</p></td>
+<td width="75%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="6%"></td>
+<td width="2%">
+
+
+<p style="margin-top: 1em">&bull;</p></td>
+<td width="1%"></td>
+<td width="16%">
+
+
+<p style="margin-top: 1em">evmfs-publish</p></td>
+<td width="75%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="6%"></td>
+<td width="2%">
+
+
+<p style="margin-top: 1em">&bull;</p></td>
+<td width="1%"></td>
+<td width="16%">
+
+
+<p style="margin-top: 1em">evm-wallet</p></td>
+<td width="75%">
+</td></tr>
+ </table>
+<hr>
+</body>
+</html>
